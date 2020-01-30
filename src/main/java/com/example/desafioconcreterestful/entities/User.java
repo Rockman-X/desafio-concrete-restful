@@ -22,7 +22,7 @@ public class User implements Serializable {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", columnDefinition = "VARCHAR(255)")
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @NotBlank(message = "{name.not.blank}")
     private String name;
@@ -31,7 +31,7 @@ public class User implements Serializable {
     @Email(message = "{email.not.valid}")
     private String email;
 
-    @NotBlank(message = "{senha.not.blank}")
+    @NotBlank(message = "{password.not.blank}")
     private String password;
 
     private LocalDate created;
